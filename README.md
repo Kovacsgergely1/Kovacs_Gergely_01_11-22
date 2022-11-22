@@ -6,5 +6,6 @@
 # 2. Termékek és árak kiírása
 # 3. Termékek darabszámának módosítása
 # 4. Új termék felvétele
-# 5. Ár módosítása
-# 6. Mentés fájlba
+# 5. Termék törlése
+# 6. Ár módosítása
+# 7. Mentés fájlba
