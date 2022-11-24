@@ -1,1 +1,4 @@
 #Data
+termek = []
+ar = []
+darab = []

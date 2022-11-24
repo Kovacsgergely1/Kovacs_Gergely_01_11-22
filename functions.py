@@ -1,4 +1,7 @@
 #Functions
+from data import termek, ar, darab
+
+fajlnev = 'data.csv'
 
 def menu():
     valasztott=''
@@ -13,3 +16,12 @@ def menu():
     print('7 - Mentés fájlba')
     valasztott=input('Válasszon egy menüpontot: ')
     return valasztott
+
+def  fajlBetoltes():
+    file = open(fajlnev, 'r', encoding='utf-8')
+    for row in file:
+        darabolt = row.strip().split(';')
+        termek.append(darabolt[0])
+        ar.append(float(darabolt[1]))
+        darab.append(int(darabolt[2]))
+    file.close()
