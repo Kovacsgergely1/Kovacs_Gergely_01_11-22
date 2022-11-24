@@ -20,6 +20,4 @@ while valasztas !='0':
         pass
     elif valasztas =='6':
         pass
-    elif valasztas =='7':
-        pass
 

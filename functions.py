@@ -10,12 +10,11 @@ def menu():
     print('-----------PÉKSÉG-----------')
     print('0 - Kilépés')
     print('1 - Termékek kiírása')
-    print('2 - Termékek és árak kiírása')
-    print('3 - Termékek darabszámának kiírása')
-    print('4 - Új termék felvétele')
-    print('5 - Termék törlése')
-    print('6 - Ár módosítása')
-    print('7 - Mentés fájlba')
+    print('2 - Termékek, árak, darabszám kiírása')
+    print('3 - Új termék felvétele')
+    print('4 - Termék törlése')
+    print('5 - Ár módosítása')
+    print('6 - Mentés fájlba')
     valasztott=input('Válasszon egy menüpontot: ')
     return valasztott
 
