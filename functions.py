@@ -39,3 +39,17 @@ def termekekArakkalKiir():
     for i in range(len(termek)):
         print(f'\t{termek[i]} {ar[i]} Ft  {darab[i]} db.')
     input('...')
+
+def ujTermek():
+    system('cls')
+    print('--------ÚJ EREDMÉNY---------')
+    bekertTermek = input('Termék neve: ')
+    bekertAr = float(input('Termék ára: '))
+    bekertDarab = int(input('Darabszám: '))
+    mentesFajlba(bekertTermek, bekertAr, bekertDarab)
+    input('Sikeres felvétel...')
+
+def mentesFajlba(termek, ar, darab):
+    file = open(fajlnev, 'a', encoding='utf-8')
+    file.write(f'\n{termek};{ar};{darab}')
+    file.close
