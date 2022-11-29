@@ -54,17 +54,30 @@ def mentesFajlba(termek, ar, darab):
     file.write(f'\n{termek};{ar};{darab}')
     file.close
 
-def sorszamozottKiir():
-    for i in range(len(termek)):
-        print((f'\t{i+1}. {termek[i]}'))
-
+def kereses(keresett):
+    for index,ertek in enumerate(termek):
+        if keresett == ertek:
+            return index
+    return -1
 
 def Torles():
     system('cls')
     print('------TERMÉK TÖRLÉSE--------')
-    sorszamozottKiir()
-    torlendo = int(input('Törlendő termék sorszáma: '))
-    termek.remove(termek[torlendo-1])
-    ar.remove(ar[torlendo-1]) 
-    darab.remove(darab[torlendo-1])
-    input('Sikeres törlés...')   
+    torlendo = input('Törlendő termék neve: ')
+
+    if kereses(torlendo) != -1:
+        termek.remove(termek[kereses(torlendo)])
+        ar.remove(ar[kereses(torlendo)])
+        darab.remove(darab[kereses(torlendo)])
+        saveFullFile()
+        input('Sikeres törlés!...')
+    else:
+        input('Nincs ilyen termék!...')
+
+def saveFullFile():
+    file = open(fajlnev, 'w', encoding = 'utf-8')
+    for i in range(len(termek)):
+        file.write(f'{termek[i]};{ar[i]};{darab[i]}')
+        if (i != len(termek) -1):
+            file.write('\n')
+    file.close()
