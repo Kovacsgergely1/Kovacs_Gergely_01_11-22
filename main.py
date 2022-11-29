@@ -1,5 +1,5 @@
 #Main
-from functions import menu, fajlBetoltes, termekekKiir, termekekArakkalKiir, ujTermek, Torles
+from functions import menu, fajlBetoltes, termekekKiir, termekekArakkalKiir, ujTermek, Torles, Armodositas, Darabmodositas, saveFullFile
 from os import system
 
 fajlBetoltes()
@@ -17,7 +17,9 @@ while valasztas !='0':
     elif valasztas =='4':
         Torles()
     elif valasztas =='5':
-        pass
+        Armodositas()
     elif valasztas =='6':
-        pass
+        Darabmodositas()
+    elif valasztas == '7':
+        saveFullFile()
 

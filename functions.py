@@ -14,7 +14,8 @@ def menu():
     print('3 - Új termék felvétele')
     print('4 - Termék törlése')
     print('5 - Ár módosítása')
-    print('6 - Mentés fájlba')
+    print('6 - Darabszám módosítása')
+    print('7 - Mentés fájlba')
     valasztott=input('Válasszon egy menüpontot: ')
     return valasztott
 
@@ -46,13 +47,8 @@ def ujTermek():
     bekertTermek = input('Termék neve: ')
     bekertAr = float(input('Termék ára: '))
     bekertDarab = int(input('Darabszám: '))
-    mentesFajlba(bekertTermek, bekertAr, bekertDarab)
+    saveFullFile()
     input('Sikeres felvétel...')
-
-def mentesFajlba(termek, ar, darab):
-    file = open(fajlnev, 'a', encoding='utf-8')
-    file.write(f'\n{termek};{ar};{darab}')
-    file.close
 
 def kereses(keresett):
     for index,ertek in enumerate(termek):
@@ -81,3 +77,29 @@ def saveFullFile():
         if (i != len(termek) -1):
             file.write('\n')
     file.close()
+
+def Armodositas():
+    system('cls')
+    print('-------ÁR MÓDOSÍTÁSA--------')
+    keresett = input('Módosítandó termék neve: ')
+
+    if kereses(keresett) != -1:
+        print(f'Jelenlegi ár: {ar[kereses(keresett)]}')
+        ar[kereses(keresett)] = input('Új ár: ')
+        saveFullFile()
+        input('Sikeres módosítás!...')
+    else:
+        input('Nincs ilyen termék!...')
+
+def Darabmodositas():
+    system('cls')
+    print('------DARAB MÓDOSÍTÁSA-------')
+    keresett = input('Módosítandó termék neve: ')
+
+    if kereses(keresett) != -1:
+        print(f'Jelenlegi darab: {darab[kereses(keresett)]}')
+        darab[kereses(keresett)] = input('Új darab: ')
+        saveFullFile()
+        input('Sikeres módosítás!...')
+    else:
+        input('Nincs ilyen termék!...')

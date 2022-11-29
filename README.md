@@ -8,4 +8,5 @@
 # 3. Új termék felvétele
 # 4. Termék törlése
 # 5. Ár módosítása
-# 6. Mentés fájlba
+# 6. Darabszám módosítása
+# 7. Mentés fájlba
