@@ -28,27 +28,45 @@ def  fajlBetoltes():
         darab.append(int(darabolt[2]))
     file.close()
 
+def Save(termek, ar, darab):
+    file=open(fajlnev,'a',encoding='utf-8')
+    file.write(f'\n{termek};{ar};{darab}')
+    file.close()
+
 def termekekKiir():
+    termek.clear()
+    ar.clear()
+    darab.clear()
+    fajlBetoltes()
     system('cls')
     print('----------TERMÉKEK----------')
     for i in range(len(termek)):
         print(f'\t{termek[i]}')
-    input('...')
+    input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
 
 def termekekArakkalKiir():
+    termek.clear()
+    ar.clear()
+    darab.clear()
+    fajlBetoltes()
     system('cls')
     for i in range(len(termek)):
         print(f'\t{termek[i]} {ar[i]} Ft  {darab[i]} db.')
-    input('...')
+    input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
 
 def ujTermek():
+    termek.clear()
+    ar.clear()
+    darab.clear()
+    fajlBetoltes()
     system('cls')
     print('--------ÚJ EREDMÉNY---------')
     bekertTermek = input('Termék neve: ')
     bekertAr = float(input('Termék ára: '))
     bekertDarab = int(input('Darabszám: '))
-    saveFullFile()
-    input('Sikeres felvétel...')
+    Save(bekertTermek, bekertAr, bekertDarab)
+    print('Sikeres felvétel!')
+    input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
 
 def kereses(keresett):
     for index,ertek in enumerate(termek):
@@ -57,6 +75,10 @@ def kereses(keresett):
     return -1
 
 def Torles():
+    termek.clear()
+    ar.clear()
+    darab.clear()
+    fajlBetoltes()
     system('cls')
     print('------TERMÉK TÖRLÉSE--------')
     torlendo = input('Törlendő termék neve: ')
@@ -66,9 +88,11 @@ def Torles():
         ar.remove(ar[kereses(torlendo)])
         darab.remove(darab[kereses(torlendo)])
         saveFullFile()
-        input('Sikeres törlés!...')
+        print('Sikeres törlés!')
+        input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
     else:
-        input('Nincs ilyen termék!...')
+        print('Nincs ilyen termék!')
+        input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
 
 def saveFullFile():
     file = open(fajlnev, 'w', encoding = 'utf-8')
@@ -79,6 +103,10 @@ def saveFullFile():
     file.close()
 
 def Armodositas():
+    termek.clear()
+    ar.clear()
+    darab.clear()
+    fajlBetoltes()
     system('cls')
     print('-------ÁR MÓDOSÍTÁSA--------')
     keresett = input('Módosítandó termék neve: ')
@@ -87,11 +115,17 @@ def Armodositas():
         print(f'Jelenlegi ár: {ar[kereses(keresett)]}')
         ar[kereses(keresett)] = input('Új ár: ')
         saveFullFile()
-        input('Sikeres módosítás!...')
+        print('Sikeres módosítás!')
+        input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
     else:
-        input('Nincs ilyen termék!...')
+        print('Nincs ilyen termék!')
+        input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
 
 def Darabmodositas():
+    termek.clear()
+    ar.clear()
+    darab.clear()
+    fajlBetoltes()
     system('cls')
     print('------DARAB MÓDOSÍTÁSA-------')
     keresett = input('Módosítandó termék neve: ')
@@ -100,6 +134,8 @@ def Darabmodositas():
         print(f'Jelenlegi darab: {darab[kereses(keresett)]}')
         darab[kereses(keresett)] = input('Új darab: ')
         saveFullFile()
-        input('Sikeres módosítás!...')
+        print('Sikeres módosítás!')
+        input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
     else:
-        input('Nincs ilyen termék!...')
+        print('Nincs ilyen termék!')
+        input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
