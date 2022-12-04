@@ -60,7 +60,7 @@ def ujTermek():
     darab.clear()
     fajlBetoltes()
     system('cls')
-    print('--------ÚJ EREDMÉNY---------')
+    print('--------ÚJ TERMÉK---------')
     bekertTermek = input('Termék neve: ')
     bekertAr = float(input('Termék ára: '))
     bekertDarab = int(input('Darabszám: '))
@@ -132,7 +132,8 @@ def Darabmodositas():
 
     if kereses(keresett) != -1:
         print(f'Jelenlegi darab: {darab[kereses(keresett)]}')
-        darab[kereses(keresett)] = input('Új darab: ')
+        ujDarab = input('Új darab: ')
+        darab[kereses(keresett)] = ujDarab
         saveFullFile()
         print('Sikeres módosítás!')
         input('A továbblépéshez nyomja meg az [ENTER] billentyűt!')
